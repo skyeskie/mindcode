@@ -10,6 +10,7 @@ class Mindcode : CliktCommand() {
         subcommands(
             CompletionCommand(),
             Compile(),
+            Watch()
         )
     }
 
