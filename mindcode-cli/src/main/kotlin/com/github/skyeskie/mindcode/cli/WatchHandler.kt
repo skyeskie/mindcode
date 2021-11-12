@@ -1,3 +1,5 @@
+package com.github.skyeskie.mindcode.cli
+
 /*
 Copyright 2019 Łukasz Wiśniewski
 

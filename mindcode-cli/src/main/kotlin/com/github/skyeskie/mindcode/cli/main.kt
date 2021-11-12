@@ -1,4 +1,4 @@
-package info.teksol.mindcode.cli
+package com.github.skyeskie.mindcode.cli
 
 import com.github.ajalt.clikt.completion.CompletionCommand
 import com.github.ajalt.clikt.core.CliktCommand

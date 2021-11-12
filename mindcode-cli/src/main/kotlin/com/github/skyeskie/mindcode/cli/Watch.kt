@@ -1,8 +1,5 @@
-package info.teksol.mindcode.cli
+package com.github.skyeskie.mindcode.cli
 
-import KWatchChannel
-import KWatchEvent
-import asWatchChannel
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.arguments.argument
 import com.github.ajalt.clikt.parameters.options.default

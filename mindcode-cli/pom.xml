@@ -59,7 +59,7 @@
                 <configuration>
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>info.teksol.mindcode.cli.MainKt</mainClass>
+                            <mainClass>com.github.skyeskie.mindcode.cli.MainKt</mainClass>
                         </transformer>
                     </transformers>
                 </configuration>

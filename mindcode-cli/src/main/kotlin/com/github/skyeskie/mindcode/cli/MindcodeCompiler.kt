@@ -1,4 +1,4 @@
-package info.teksol.mindcode.cli
+package com.github.skyeskie.mindcode.cli
 
 import info.teksol.mindcode.ast.AstNodeBuilder
 import info.teksol.mindcode.ast.Seq
