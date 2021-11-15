@@ -1,0 +1,34 @@
+Configuration:
+  status: debug
+  name: MindcodeCli
+  packages: com.github.skyeskie.mindcode.cli
+  thresholdFilter:
+    level: trace
+  Appenders:
+    Console:
+      name: MainAppLogger
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%d [%p] %C{1.} - %m%n"
+  Loggers:
+    Logger:
+      - name: com.github.skyeskie.mindcode.cli.Watch
+        level: info
+        additivity: false
+        AppenderRef:
+          ref: MainAppLogger
+      - name: com.github.skyeskie.mindcode.cli.MindcodeCompiler
+        level: info
+        additivity: false
+        AppenderRef:
+          ref: MainAppLogger
+      - name: com.github.skyeskie.mindcode.cli
+        level: info
+        additivity: false
+        AppenderRef:
+          ref: MainAppLogger
+
+    Root:
+      level: error
+      AppenderRef:
+        ref: MainAppLogger

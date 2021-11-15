@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.github.skyeskie.mindcode.cli
 
 /*
@@ -18,8 +20,11 @@ limitations under the License.
 Modified for watching specific file extensions
  */
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import java.io.File
 import java.nio.file.*
 import java.nio.file.StandardWatchEventKinds.*
@@ -36,7 +41,7 @@ import java.nio.file.attribute.BasicFileAttributes
 fun File.asWatchChannel(
     mode: KWatchChannel.Mode? = null,
     tag: Any? = null,
-    scope: CoroutineScope = GlobalScope
+    scope: CoroutineScope,
 ) = KWatchChannel(
     file = this,
     mode = mode ?: if (isFile) KWatchChannel.Mode.SingleFile else KWatchChannel.Mode.Recursive,
@@ -55,7 +60,7 @@ fun File.asWatchChannel(
  */
 class KWatchChannel(
     val file: File,
-    val scope: CoroutineScope = GlobalScope,
+    val scope: CoroutineScope,
     val mode: Mode,
     val tag: Any? = null,
     private val channel: Channel<KWatchEvent> = Channel()
@@ -94,7 +99,7 @@ class KWatchChannel(
         // commence emitting events from channel
         scope.launch(Dispatchers.IO) {
 
-            // sending channel initalization event
+            // sending channel initialization event
             channel.send(
                 KWatchEvent(
                     file = path.toFile(),
@@ -190,7 +195,7 @@ class KWatchChannel(
  */
 data class KWatchEvent(
     /**
-     * Abolute path of modified folder/file
+     * Absolute path of modified folder/file
      */
     val file: File,
 

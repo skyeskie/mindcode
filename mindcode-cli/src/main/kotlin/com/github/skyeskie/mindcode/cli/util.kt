@@ -7,6 +7,5 @@ fun generateOutfile(srcFile: File): File {
     if (newFilename == srcFile.name) {
         newFilename = srcFile.nameWithoutExtension + ".mc"
     }
-    val full = srcFile.parent + newFilename
-    return File(full)
+    return srcFile.parentFile.resolve(newFilename)
 }

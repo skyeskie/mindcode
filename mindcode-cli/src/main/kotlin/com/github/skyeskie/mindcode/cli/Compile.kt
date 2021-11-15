@@ -8,13 +8,13 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 
-class Compile() : CliktCommand() {
-    private val file by argument(help = "Mindcode file").file(mustExist = true, canBeDir = false);
+class Compile : CliktCommand() {
+    private val file by argument(help = "Mindcode file").file(mustExist = true, canBeDir = false)
 
     private val output by option("-o", "--o", "--output", help = "Output .mcode file").file(
         canBeDir = false,
         mustBeWritable = true,
-    );
+    )
 
     private val promptOverwrite by option(help = "Prompt before overwrite existing")
         .flag("--no-prompt-overwrite")

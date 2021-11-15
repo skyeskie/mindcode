@@ -19,4 +19,4 @@ class Mindcode : CliktCommand() {
     }
 }
 
-fun main(args: Array<String>) = Mindcode().main(args);
+fun main(args: Array<String>) = Mindcode().main(args)
